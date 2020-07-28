@@ -29,6 +29,11 @@ function azc {
         }
     }
 
-    if (!($subscriptionInput = Read-Host "Select Subscription")) { $subscriptionInput = 0 }
+    if($subscriptionArray.Count -gt 1) {
+        if (!($subscriptionInput = Read-Host "Select Subscription")) { $subscriptionInput = 0 }
+    } else {
+        $subscriptionInput = 0
+    }
+    
     Set-AzContext -SubscriptionId $subscriptionArray[$subscriptionInput]
 }
