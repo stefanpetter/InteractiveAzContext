@@ -3,7 +3,7 @@ A Powershell function that you can use to interactively choose your preferred co
 
 # How to use it
 Paste the function in your Powershell profile. In my case, the file was located at:
-C:\Users\%USERNAME%\Documents\PowerShell\profile.ps1
+C:\Users\\%USERNAME%\Documents\PowerShell\profile.ps1
 
 After opening a new shell, the function 'azc' will be available
 
