@@ -1,5 +1,5 @@
 function azc {
-    $allContexts = (Get-AzContext -List)
+    $allContexts = (Get-AzContext -List | Sort-Object Account)
     $contextArray = @()
     $contextEmailArray = @()
     $contextCount = 0
@@ -17,7 +17,7 @@ function azc {
     if (!($contextInput = Read-Host "Select Context")) { $contextInput = 0 }
     $setContext = Set-AzContext  -Context $contextArray[$contextInput]
 
-    $allSusbcriptions = Get-AzSubscription
+    $allSusbcriptions = Get-AzSubscription | Sort-Object Name
     $subscriptionArray = @()
     $subscriptionCount = 0
 
