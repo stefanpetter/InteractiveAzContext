@@ -14,7 +14,7 @@ function azc {
         }
     }
 
-    $contextInput = Read-Host -Prompt 'Select Context'
+    if (!($contextInput = Read-Host "Select Context")) { $contextInput = 0 }
     $setContext = Set-AzContext  -Context $contextArray[$contextInput]
 
     $allSusbcriptions = Get-AzSubscription
@@ -29,6 +29,6 @@ function azc {
         }
     }
 
-    $subscriptionInput = Read-Host -Prompt 'Select Subscription'
+    if (!($subscriptionInput = Read-Host "Select Subscription")) { $subscriptionInput = 0 }
     Set-AzContext -SubscriptionId $subscriptionArray[$subscriptionInput]
 }
