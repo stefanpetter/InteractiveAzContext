@@ -17,16 +17,14 @@ function azc {
     if (!($contextInput = Read-Host "Select Context")) { $contextInput = 0 }
     $setContext = Set-AzContext  -Context $contextArray[$contextInput]
 
-    $allSusbcriptions = Get-AzSubscription | Sort-Object Name
+    $allSubscriptions = (Get-AzSubscription | Where-Object {$_.State -eq "Enabled"} | Sort-Object Name)
     $subscriptionArray = @()
     $subscriptionCount = 0
 
-    foreach($subscription in $allSusbcriptions){
-        if($subscription.State -eq 'Enabled'){
-            $subscriptionArray += $subscription.Id
-            Write-Host ("[" + $subscriptionCount + "] - " + $subscription.Name + " - " + $subscription.Id)
-            $subscriptionCount++
-        }
+    foreach($subscription in $allSubscriptions){
+        $subscriptionArray += $subscription.Id
+        Write-Host ("[" + $subscriptionCount + "] - " + $subscription.Name + " - " + $subscription.Id)
+        $subscriptionCount++
     }
 
     if($subscriptionArray.Count -gt 1) {
