@@ -3,7 +3,7 @@ A Powershell function that you can use to interactively choose your preferred co
 
 # How to use it
 Paste the function in your Powershell profile.
-By running $profile within powershell you can determine the location of your PowerShell Profile. Prefixing the variable with your favorite will open the profile directly. For example: 
+By running $profile within powershell you can determine the location of your PowerShell Profile. Prefixing the variable with your favorite editor will open the profile directly. For example: 
 
 ```
 code $profile
