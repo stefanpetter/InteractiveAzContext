@@ -2,10 +2,14 @@
 A Powershell function that you can use to interactively choose your preferred context based on accounts you previously connected through Connect-AzAccount
 
 # How to use it
-Paste the function in your Powershell profile. In my case, the file was located at:
-C:\Users\\%USERNAME%\Documents\PowerShell\profile.ps1
+Paste the function in your Powershell profile.
+By running $profile within powershell you can determine the location of your PowerShell Profile. Prefixing the variable with your favorite will open the profile directly. For example: 
 
-After opening a new shell, the function 'azc' will be available
+```
+code $profile
+```
+
+After opening a new shell, the function 'azc' will be available. Please note that this will impact the loading time of your PowerShell setup.
 
 # How does it work? 
 - It will list all your connected Contexts through Get-AzContext -List
